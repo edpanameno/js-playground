@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<title>Re-Introduction to Javascript</title>
+		<script type="text/javascript">
+			// Integer values are treated at 32-bit ints
+			console.log(0.1 + 0.2);
+			//console.log(Math.sin(3.5));
+			var r = 3.5;
+			console.log("Value of r: " + r);
+			r = Math.sin(r);
+			console.log("New Value of r: " + r);
+			var diameter = Math.PI * r * r;
+			console.log("resut: " + diameter);
+			console.log("convert string to int\n");
+			console.log(parseInt("x010"));
+			console.log(typeof parseInt("123", 10));
+			var t1 = "11";
+			
+			// the second parameter to parseInt is the base type.
+			console.log("convert " + t1 + " from binary to int: " + parseInt(t1, 2));
+
+			// Nan - Not a number!
+			console.log(parseInt("hello", 10));
+			console.log("Nan + 5: " + (NaN + 5));
+			console.log("Nan + 5 is NaN " + isNaN(NaN + 5));
+
+			// Infinity
+			console.log("1/0 = " + 1/0);
+			var t2 = "10abc";
+			// parseInt will try to convert the number until the point
+			// where it comes accross a character that is not a valid 
+			// number
+			console.log(parseInt(t2, 10));
+			
+			// + in the other hand, just converts this to a Nan if it
+			// encounters a invalid character in the number	
+			console.log(+t2);
+
+			console.log("\nStrings\n");
+			console.log("length of 'hello': + " + "hello".length);
+			var t3 = "Edwin";
+			console.log("length of 't3': + " + t3.length);
+			console.log("'t3' to upper case: " + t3.toUpperCase());
+
+			// Important: 0, false, empty string, NaN, null and undefined => evaluate to false.
+			// All other values become true.
+			console.log("Boolean(\"\"): " + Boolean(""));
+			console.log("Boolean(\"123\"): " + Boolean("123"));
+
+			// what happens if we try to access a variable that's undefined?
+			var t4; 
+			console.log("typeof t4: " + typeof t4);
+			console.log("t4 should return undefined: " + t4);
+			t4 = 2;
+			console.log("t4 should now return something: " + t4);
+			console.log("t4.horsey should now return undefined: " + t4.horse);
+			//t4.prototype.horse = "Horse" || undefined ;
+			console.log("t4.horse should now return something: " + t4.horse);
+
+			var t5 = {
+				horse: "Horsey"
+			};
+
+			console.log("t5.horse should now return something: " + t5.horse);
+			console.log("t5.name should now return undefined: " + t5.name);
+			t5.name = "Howard";
+			console.log("t5.name should now return a value: " + t5.name);
+
+			console.log("Comparisons.\n\n");
+			console.log("'dog' == 'dog' " + ("dog" == "dog"));
+			console.log("1 == true " + (1 == true));
+
+			var t6 = "kittens";
+			if(t6 == "puppies") {
+				t6 += "!";
+			}
+			else if(t6 == "kittens") {
+				t6 += "!!";
+			}
+			else {
+				t6 = "!" + t6;
+			}
+
+			console.log("Value of t6: " + t6);
+
+			// accessing arguments inside of functions, this will allow us
+			// to have a function with as many arguments as we'd like to use.
+			// But what if we pass zero arguments, what should this return?
+			function myFunc() {
+				
+				if(arguments.length === 0) {
+					return "No Arguments passed to this function.";
+				}
+
+				var sum = 0;
+				for(var i = 0, j = arguments.length; i < j; i++) {
+					sum += arguments[i];
+				}
+
+				return sum;
+			}
+
+			console.log("myFunc with no arguments: " + myFunc());
+			console.log(myFunc(2, 3, 4, 5));
+			console.log(myFunc.apply(null, [2, 3, 4, 5 ]));
+
+			// This is one way to emulate (not completely) a constructor in
+			// javascript.
+			function makePerson(first, last) {
+				return {
+					first: first,
+				    last: last,
+					fullName: function() {
+						// this refers to the current object
+						return this.first + ' ' + this.last;
+					},
+					fullNameReversed: function() { 
+					  	return this.last + ' ' + this.first;
+				  }
+				}
+			}
+
+			var t7 = makePerson("Edwin", "Panameno");
+			console.log("full name: " + t7.fullName());
+			console.log("full name (reversed): " + t7.fullNameReversed());
+			var fullName = t7.fullName
+			console.log("fullName(): " + fullName());
+
+			// Now we are 'creating' a constructor. Note that as a convention
+			// we have capatilized the first letter of this function. Now,
+			// we can use the 'new' keyword to create a n object.
+			function Person(first, last) {
+				this.first = first;
+			    this.last = last;
+				
+				this.fullName = function() {
+					// this refers to the current object
+					return this.first + ' ' + this.last;
+				}
+				
+				this.fullNameReversed = function() { 
+				  	return this.last + ' ' + this.first;
+			    }
+			}
+			var t8 = new Person("Joe", "Doe");
+			console.log("t8.fullName(): " + t8.fullName());
+			// this should fail
+			//console.log("t8.fullNameCaps(): " + t8.fullNameCaps());
+			
+			// we can add properties to the object as we please.
+			Person.prototype.firstNameCaps = function() {
+				return this.first.toUpperCase();
+			}
+
+			Person.prototype.toString = function() {
+				//return "<Person: " + this.fullName() + ">";
+				//return {"first": this.first, "last": this.last };
+			}
+
+			console.log("t8.firstNameCaps(): " + t8.firstNameCaps());
+			//console.log("t8.toString(): " + t8);
+
+			// Adding a method to the built in String type
+			String.prototype.reversed = function() {
+				var r = "";
+				for(var i = this.length - 1; i >= 0; i--) {
+					r += this[i];
+				}
+				return r;
+			}
+
+			console.log("Edwin Panameno".reversed());
+
+			// closures
+			function makeAdder(a) {
+				return function(b) {
+					return a + b;
+				}
+			}
+
+			x = makeAdder(5);
+			v = makeAdder(20);
+			console.log("x(6): " + x(6));	
+			console.log("v(x(6)): " + v(x(6)));	
+		</script>
+	</head>
+	<body>
+	<h3>A Re-Introduction to Javascript.</h3>
+	<p>A re-introduction to javascript. I followed the steps on the following <a href="https://developer.mozilla.org/en/A_re-introduction_to_JavaScript" target="_blank">page</a>.</p>
+</bodY>
+</html>
+
