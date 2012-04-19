@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<title>Chapter1</title>
+		<script type="text/javascript">
+			function power(base, exponent) {
+				var result = 1;
+				for(var count = 0; count < exponent; count++) {
+					result *= base;
+				}
+				return result;
+			}
+			
+			function absolute(number) {
+				
+				if(number < 0) {
+					return (-1) * number;
+				}
+				else {
+					return number;
+				}
+			}
+
+			console.log(power(2, 10));
+			console.log(power(12, 10));
+			var value = 5;
+			console.log("absolute value of " + value + ": " + absolute(value));
+			function yell(msg) {
+				alert(msg + "!!!");
+			}
+//yell("wow");
+			var variable = "top-level";
+			console.log("variable outside parentFunction(): " + variable);
+
+			function parentFunction() {
+				var variable = "local";
+				console.log("variable inside parentFunction(): " + variable);
+				function childFunction() {
+					console.log("variable inside childFunction(): " + variable);
+				}
+
+				childFunction();
+			}
+
+			parentFunction();
+			
+			function makeAddFunction(amount) {
+				function add(number) {
+					return number + amount;
+				}
+				return add;
+			}
+			
+			var addTwo = makeAddFunction(2);
+			var addFive = makeAddFunction(5);
+			console.log("addTwo(1) + addFive(1): " + (addTwo(1) + addFive(1)));
+			
+			/*function chicken() {
+				return egg();
+			}
+			function egg() {
+				return chicken();
+			}
+			console.log(chicken() + " came first");*/
+			function findSequence(goal) {
+				function find(start, history) {
+					if(start == goal) {
+						return history;
+					}
+					else if (start > goal) {
+						return null;
+					}
+					else {
+						return find(start + 5, "(" + history + " + 5") ||
+							   find(start * 5, "(" + history + " * 3");
+					}
+				}
+
+				return find(1, "1");
+			}
+//console.log(findSequence(24));
+			
+			function greaterThan(num) {
+				return function (other) {
+					if(num < other) {
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+			}; 
+
+			var gt = greaterThan(7);
+			console.log(gt(9));
+
+			alert("Hello", "Good evening", "How do you am do?", "Goodbye");
+		</script>
+	</head>
+	<body>
+		<h3>Chapter1</h3>
+		<p>This is the chapter1 of me just learning things about javascript</p>
+	</body>
+</html>
+
