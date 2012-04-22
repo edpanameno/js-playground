@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Chapter1</title>
+		<script type="text/javascript">
+			var text = "Hi there!";
+			console.log("text[length]: " + text["length"]);
+			console.log("text.length: " + text.length);
+			var nothing = null;
+			console.log("nothing: " + nothing);
+			var cat = {colour: "grey", name: "spot", size: 46};
+			console.log("cat.colour: " + cat.colour);
+			console.log("cat.name: " + cat.name);
+			delete cat.name;
+			console.log("cat.name: " + cat.name);
+
+			// this is an object
+			var empty = {};
+			console.log("typeof empty: " + typeof empty);
+			// now we add a property to this object
+			empty.value = "great";
+			console.log("empty.value: " + empty.value);
+			// invalid names for properties
+			var things = {"hey now": "howard", "5": 10};
+			console.log(things["hey now"]);
+			console.log(things[3 + 2]);
+
+			// the in operator tests to see if an object has
+			// a certain property
+			var testMe = {};
+			testMe.content = "hey now";
+			console.log("content" in testMe);
+			console.log("content2" in testMe);
+
+			var obj1 = {value: 10};
+			var obj2 = obj1;
+			var obj3 = {value: 10};
+			console.log(obj1 == obj2); // true
+			console.log(obj1 == obj3); // false
+
+
+		</script>
+	</head>
+	<body>
+		<h3>Objects and Arrays</h3>
+	</body>
+</html>

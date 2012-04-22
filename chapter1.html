@@ -81,12 +81,7 @@
 			
 			function greaterThan(num) {
 				return function (other) {
-					if(num < other) {
-						return true;
-					}
-					else {
-						return false;
-					}
+					return num < other;
 				}
 			}; 
 

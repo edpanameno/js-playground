@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var ed = new Object();
+			ed.living = true;
+			ed.age = 35;
+			ed.gender = "male";
+			ed.getGender = function() { return ed.gender; }
+			console.log("typeof ed: " + typeof ed);
+			console.log("ed.getGender(): " + ed.getGender());
+			console.log(ed);
+
+			var myObject = new Object();
+			myObject['0'] = 'f';
+			myObject['1'] = 'o';
+			myObject['2'] = 'o';
+			console.log(myObject);
+
+			var myStr = new String('Edwin Ernesto Panameno');
+			console.log(myStr);
+			console.log(myStr.bold());
+
+			/*var ed2 = {};
+			ed2.living = true;
+			ed2.age = 35;
+			ed2.gender = "male";
+			console.log("ed2.living: " + ed2.living);
+			console.log("ed2.age: " + ed2.age);
+			console.log("ed2.gender: " + ed2.gender);*/
+
+			var Person = function(living, age, gender) {
+				this.living = living;
+				this.age = age;
+				this.gender = gender;
+				this.getGender = function() { return this.gender; };
+				//this.toString() = funtion() { return ("living: " + living + ", age: " + age + " and gender: " + gender) }
+			};
+			var ed3 = new Person(true, 35, 'male');
+			console.log('ed3: ' + ed3);
+			console.log('typeof ed3: ' + typeof ed3);
+			console.log('typeof myObject: ' + typeof myObject);
+			console.log(myObject);
+		</script>
+	</body>
+</html>
