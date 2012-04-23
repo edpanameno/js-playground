@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+			// let's take a look at what's in the window object	
+			var wObjects = [];
+			for(x in window) {
+				wObjects.push(x);
+				//console.log(x);
+			}
+			//console.log(wObjects);
+			console.log("there are: " + wObjects.length + " objects in the window object");
+
+			var dObjects = [];
+			for(y in window.document) {
+				dObjects.push(y);
+			}
+			//console.log(dObjects);
+			console.log("there are: " + dObjects.length + " objects in the document object");
+
+			var bBody = [];
+			for(b in window.document.body) {
+				bBody.push(b);
+			}
+			console.log(bBody);
+			
+			// these are added to the global object (i.e. window)
+			function changeColor(newColor) {
+				var elem = document.getElementById('myName');
+				alert("elem.nodeName: " + elem.nodeName);
+				alert("elmen.value: " + elem.value);
+				elem.style.color = newColor;
+			}
+
+			// added to the global object (i.e. window)
+			function getData() {
+				var bElem = document.getElementById("myName");
+				for(var key in bElem) {
+					if(bElem.hasOwnProperty(key)) {
+						console.log(bElem[key]);
+					}
+				}
+				console.log("bElem: " + bElem.innerHTML);
+				alert("bElem: " + bElem.innerHTML);
+			}
+
+			// added the global object (i.e. window)
+			function myName() {
+				console.log("my name is ed");
+			}
+		</script>
+	</head>
+	<body>
+		<b id="myName">hi there!</b>
+		<button onclick="changeColor('blue');">blue</button>
+		<button onclick="changeColor('red');">red</button>
+		<input type="text" id="myid" />
+		<button onclick="getData();">Get Data</button>
+	</body>
+</html>
