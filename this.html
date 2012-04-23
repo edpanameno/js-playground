@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var Person = function(name) {
+				this.name = name || "john doe";
+			}
+
+			var ed = new Person("Ed");
+			console.log(ed.name);
+
+			// this will display 'undefined' as we 
+			// didn't use the word 'new'	
+			var ed2 = Person("Shogo");
+			//console.log(ed2.name);
+			console.log(window.name);
+		</script>
+	</body>
+</html>
