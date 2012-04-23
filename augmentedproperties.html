@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			
+			// Here we are adding a new property to the String object 
+			String.augmentedProperties = [];
+
+			// Before creating our own trimIT function and adding it to the
+			// String object, we have to check to see if it exists or not.
+			// If it doesn't exist, we add it to the String object.
+			if(!String.prototype.trimIT) {
+				String.prototype.trimIT = function() {
+					return this.replace(/^\s+|\s+$/g, '');
+				}
+
+				// Now that we have created the trimIT object
+				// we can add it to our augmentedProperties array.
+				String.augmentedProperties.push('trimIT');
+			}
+
+			// Adding another function just to play around .
+			if(!String.prototype.replaceSpacesWithDash) {
+				String.prototype.replaceSpacesWithDash = function() {
+					return this.replace(/^\s+|\s+$/g, '_');
+				}
+				
+				String.augmentedProperties.push('replaceSpacesWithDash');
+			}
+
+			var myStr = ' hey there ';
+			console.log("myStr.length: " + myStr.length);
+			var myStr2 = myStr.trimIT();
+			console.log(myStr2);
+			console.log("myStr2.length: " + myStr2.length);
+			var myStr3 = myStr.replaceSpacesWithDash();
+			console.log("myStr3: " + myStr3);
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// Prototype chain
+			var meArray = ['foo', 'bar', 'fizz'];
+			console.log(typeof meArray);
+
+			// IF we define our own join method, then this is what
+			// javascript will use when it see's the call to join below
+			// if the line below is commented out, then it'll use the 
+			// join function from the Array Object.
+			meArray.join = function() { return 'me own join function'; }
+
+			// this is how we can check to see if an instanace of a 
+			// particular object has a property or not.
+			console.log("meArray.join: " + meArray.hasOwnProperty('join'));
+
+			// This works because the join function is 
+			// defined in the Array object. So when 
+			// javascript see's this, it'll first try to
+			// find to see if this method is defined in this
+			// object. If it's not, then it'll go up the chain
+			// using the prototype property of this object.
+			console.log(meArray.join());
+			console.log(meArray.toLocaleString());
+
+			console.log("toString() in meArray: " + ('toString' in meArray));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// Host objects are available as objects
+			// during execution
+			/*var count = 0;
+			for(var x in window) {
+				console.log(x);
+				count++;
+			}
+			console.log("number of objects: " + count);*/
+
+			for(x in window.document) {
+				console.log(x + ": " + window.document[x]);
+			}
+
+			console.log(window.document.documentURI);
+		</script>
+	</body>
+</html>

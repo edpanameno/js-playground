@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var CustomConstructor = function() { this.foo = 'bar';};
+			var custObject = new CustomConstructor();
+
+			console.log(custObject instanceof CustomConstructor);
+			console.log("typeof CustomConstructor: " + (typeof CustomConstructor));
+
+			var custObj2 = new CustomConstructor();
+			console.log("typeof custObj2: " + (typeof custObj2));
+		</script>
+	</body>
+</html>

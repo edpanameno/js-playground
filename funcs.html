@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// Creating functions (using two different methods)
+			// This version takes the number of parameters and then the
+			// function body
+			var myFunc = new Function('num1', 'num2', 'return num1 + num2');
+			console.log(myFunc(3,2));
+
+			// second way of creating functions ... this is what's known 
+			// as the literal way.
+			var myFunc2 = function(num1, num2) { return num1 + num2; }	
+			console.log(myFunc2(3,3));
+
+			var myObj1 = {
+				name: "myObj1",
+				myMethod: function() { 
+					//console.log(arguments.callee);
+					console.log(this); 
+				}
+			};
+			myObj1.myMethod();
+
+			var myObj2 = function() { console.log(this); }
+			myObj2();
+
+			var foo = function() {
+				console.log(arguments.callee);
+			}();
+
+			var sayHi = function(f) { f(); };
+			sayHi(function() { console.log("hello there!"); });
+
+			var sayWord = function() { console.log("hey now"); }();
+		</script>
+	</body>
+</html>

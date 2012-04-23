@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var myNull = null;
+			console.log("typeof myNull: " + typeof myNull);
+
+			var myFunction = new Function("x", "y", "return x*y");
+			console.log("typeof myFunction: " + typeof myFunction);
+
+			var myString1 = new String("Hello");
+			var myString2 = String("There!");
+
+			// The first will print out object (we used the new keyword)
+			// While the second line will print string, this is a primitive
+			console.log("typeof myString1: " + typeof myString1);
+			console.log("typeof myString2: " + typeof myString2);
+			
+			// now this will print out object.
+			console.log("typeof myString2.toString: " + (typeof new String(myString2)));
+		</script>
+	</body>
+</html>
+

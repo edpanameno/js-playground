@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var me = {
+				name: "edwin",
+				age: 30
+			};
+
+			console.log("typeof me: " + (typeof me));
+
+			// Enumerating thru each of the properties
+			// inside of the me object just created above
+			for(var key in me) {
+				// Need to avoid any properties that were inherited
+				// by the prototype chain.
+				if(me.hasOwnProperty(key)) {
+					console.log(key);
+				}
+			}
+
+		</script>
+	</body>
+</html>

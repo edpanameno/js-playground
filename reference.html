@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			
+			var myObject = {};
+			
+			// Objects are references ... that is they are stored in
+			// memory. When you have one object point to another object
+			// they are pointing to the same location in memory.
+			var copyOfMyObject = myObject;
+
+			// This change will also show up in copyOfMyObject
+			myObject.foot = "bar";
+
+			// This should print out the same thing as the two are 
+			// referencing the same memory location.
+			console.log(myObject, copyOfMyObject);
+
+			myObject.address = 10;
+			console.log(myObject, copyOfMyObject);
+
+			// the change to this object will still show up 
+			// in the other object ... again, because of references 
+			copyOfMyObject.address = 20;
+			console.log(myObject, copyOfMyObject);
+		</script>
+	</body>
+</html>

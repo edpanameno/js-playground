@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			/**
+			 * This show you how you can have multiple objects
+			 * pointing to the same complex object in memory. 
+			 * And how you can also add/edit values in the objects
+			 * and these changes will show up in the other objects.
+			 */
+			var objA = {property: "value"};
+			var pointer1 = objA;
+			var pointer2 = pointer1;
+
+			objA.property = "edwin";
+			console.log(objA.property, pointer1.property, pointer2.property);
+
+			// now we add a property to one of the objects and
+			// this should also show up in the other objects
+			pointer2.maxValue = 10;
+			console.log(objA.maxValue, pointer1.maxValue, pointer2.maxValue);
+
+			pointer1.maxValue = 250;
+			console.log(objA.maxValue, pointer1.maxValue, pointer2.maxValue);
+		</script>
+	</body>
+</html>

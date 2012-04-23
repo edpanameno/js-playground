@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var value1 = 10;
+			var value2 = 20;
+			var value3 = value1;
+
+			console.log("value1: " + value1);
+			console.log("value2: " + value2);
+			console.log("value3: " + value3);
+			value3 = 25;
+
+			// Notice that only value3 has changed and
+			// not value2. The reason for this is that
+			// a copy of made of value3, no reference
+			// when using primitive types.
+			console.log("value3: " + value3);
+			console.log("value2: " + value2);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var objFoo = {same: "same"};
+			var objBar = {same: "same"};
+
+			// This evaluates to false because these two objects
+			// are pointing to different memory address (even though
+			// the data inside of them is the same).
+			console.log("objFoo === objBar: " + (objFoo === objBar));
+			
+			var objFoo2 = objFoo;
+
+			// This evaluates to true because both objects are pointing
+			// to the same memory address
+			console.log("objFoo === objFoo2: " + (objFoo === objFoo2));
+			console.log("objFoo == objFoo2: " + (objFoo == objFoo2));
+		</script>
+	</body>
+</html>
+

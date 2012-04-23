@@ -6,7 +6,7 @@
 			ed.living = true;
 			ed.age = 35;
 			ed.gender = "male";
-			ed.getGender = function() { return ed.gender; }
+			ed.getGender = function() { return this.gender; }
 			console.log("typeof ed: " + typeof ed);
 			console.log("ed.getGender(): " + ed.getGender());
 			console.log(ed);
@@ -17,9 +17,18 @@
 			myObject['2'] = 'o';
 			console.log(myObject);
 
-			var myStr = new String('Edwin Ernesto Panameno');
+			var myStr = new String('Ed Panameno');
 			console.log(myStr);
 			console.log(myStr.bold());
+
+			var cal = new Object();
+			cal.firstNumber = 10;
+			cal.secondNumber = 5;
+			cal.add = function() { return this.firstNumber + this.secondNumber; }
+			cal.sub = function() { return this.firstNumber - this.secondNumber; }
+
+			console.log("cal.add(): " + cal.add());
+			console.log("cal.sub(): " + cal.sub());
 
 			/*var ed2 = {};
 			ed2.living = true;
@@ -34,13 +43,93 @@
 				this.age = age;
 				this.gender = gender;
 				this.getGender = function() { return this.gender; };
-				//this.toString() = funtion() { return ("living: " + living + ", age: " + age + " and gender: " + gender) }
 			};
+
+			var p1 = new Person(true, 33, 'female');
+			console.log("========");
+			console.log("what sex is p1?: " + p1.getGender());
+			console.log("typeof p1: " + typeof p1);
+			console.log(p1);
+			console.log(p1.constructor);
+			
+			console.log("typeof Person: " + typeof Person);
+
+			var Animal = function(name, age, hi) {
+				this.name = name;
+				this.age = age;
+				this.hi = hi;
+			};
+
+			console.log("typeof Animal: " + typeof Animal);
+
 			var ed3 = new Person(true, 35, 'male');
 			console.log('ed3: ' + ed3);
 			console.log('typeof ed3: ' + typeof ed3);
+			console.log('typeof ed3: ' + typeof ed3); 
 			console.log('typeof myObject: ' + typeof myObject);
 			console.log(myObject);
+
+			var myArray = new Array();
+			console.log(typeof myArray);
+			console.log(myArray);
+			console.log(myArray.constructor);
+
+			console.log("Math.PI: " + Math.PI);
+			console.log("========");
+			var str1 = new String('foo');
+			console.log("str1: " + str1);
+
+			// different types of built-in objects provided by 
+			// javascripts
+			var n1 = new Number(23);
+			console.log("n1: " + n1);
+			console.log(n1.constructor);
+
+			var myStr3 = 'string', myNumber = 10, myBoolean = false, myNull = null, myUndefined = undefined;
+			console.log(myStr3, myNumber, myBoolean, myNull, myUndefined);
+
+			var myObj = {
+				myString: 'string',
+				myNumber: 10,
+				myBoolean: false,
+				myNull: null,
+				myUndefined: undefined
+			};
+
+			console.log(myObj);
+			console.log("====================\n");
+			var meString = "USC";
+			var meString2 = meString;
+		   	console.log("meString: " + meString);	
+			console.log("meString2: " + meString2);
+			meString2 = "Rocks!";	
+			console.log("meString2: " + meString2);
+			console.log("meString: " + meString);	
+
+			var price1 = 10;
+			console.log("typeof price1: " + typeof price1);
+			var price2 = 10;
+			var price3 = new Number("10");
+			console.log("typeof price3: " + typeof price3);
+			var price4 = price3;
+			console.log("typeof price4: " + typeof price4);
+
+			console.log("price1 === price2: " + (price1 === price2));
+			console.log("price1 === price3: " + (price1 === price3));
+			console.log("price3 === price4: " + (price3 === price4));
+			price4 = 10;
+			console.log("typeof price4: " + typeof price4);
+			console.log("price3 === price4: " + (price3 === price4));
+
+			// Creating primitive types (not using the new keyword)
+			var str3 = "Foo";
+			var str4 = new String("foo");
+			console.log("typeof str3: " + typeof str3);
+			console.log("typeof str4: " + typeof str4);
+
+			var primVal = 1;
+			console.log("typeof primVal.toString(): " + typeof primVal.toString());
+			console.log("primVal.toString(): " + primVal.toString());	
 		</script>
 	</body>
 </html>

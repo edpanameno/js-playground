@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// Bracket notation can be used when you are using 
+			// a property name that is a valid javascript identifier.
+			var myObj = {'123': 'zero', 'class': 'foo'};
+			console.log(myObj['123'], myObj['class']);
+			
+			// this will fail because of the reserved word class
+			console.log(myObj[class]);
+		</script>
+	</body>
+</html>

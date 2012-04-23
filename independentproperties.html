@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// Independent Properties
+			var myArray = new Array();
+			myArray.myProp = 'test';
+			console.log(myArray.myProp);
+
+			// this will print out undefined because we
+			// have yet to define this property on this 
+			// object
+			console.log(myArray.myProp2);
+
+			// Instance properties are only good on complex types
+			// they don't work on primitive types
+			var myName = "Edwin";
+			myName.myProp = "is the best";
+			
+			// this will print out undefined even though we have 
+			// actually defined this for this variable, but it 
+			// doesn't work because myName is a primitive type.
+			console.log(myName.myProp);
+		</script>
+	</body>
+</html>

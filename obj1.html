@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// The Object() constructor takes in a parameter
+			var ed1 = new Object();
+			var ed2 = new Object(undefined);
+			var ed3 = new Object(null);
+
+			console.log(typeof ed1, typeof ed2, typeof ed3);
+
+			console.log(new Object('foo'));
+			console.log(new Object(8827).valueOf());
+			console.log(new Object(null));
+			console.log(new Object([]));
+			console.log(new Object(function() {}));
+			console.log(new Object(true));
+
+			// All objects inherit from Object.prototype
+			Object.prototype.meName = "edwin";
+			var test = {};
+			console.log(test.meName);
+			var str = new String("Panameno");
+			console.log(str);
+			console.log(str.meName);
+		</script>
+	</body>
+</html>
