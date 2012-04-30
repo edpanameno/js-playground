@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var meArray = new Array("Ed", "Is the Best!");
+			console.log(meArray.join());
+			console.log("typeof meArray.join(): " + typeof meArray.join());
+
+			var myFunc = function() {
+				console.log("hey from myFunc");
+			}
+
+			// this prototype property is coming from the Function constructor
+			console.log(myFunc.prototype);
+			console.log("typeof myFunc.prototype: " + typeof myFunc.prototype);
+
+			Object.prototype.foo = "object-foo";
+			Array.prototype.foo = "array-foo";
+			var myArray = [];
+			console.log(myArray.foo);
+			myArray.foo = "array-foo2";
+			console.log(myArray.foo);
+
+			var meObject = {};
+			console.log(meObject.foo + "\n");
+
+			var Person = function() {this.bar = 'person-bar';}
+			Person.prototype.foo = 'person-foo';
+			var Chef = function() {this.goo = 'chef-goo';}
+			Chef.prototype = new Person();
+			var me = new Chef();
+			console.log(me.foo);
+			console.log(me.goo);
+			console.log(me.bar);
+		</script>
+	</body>
+</html>
+

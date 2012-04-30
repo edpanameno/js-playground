@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// this is in the global scope
+			var foo = 0;
+			console.log("foo (global): " + foo);
+
+			var myFunction = function() {
+				
+				// function scope
+				var foo = 1;
+				console.log("foo (myFunction): " + foo);
+
+				var myFunc = function() {
+					
+					// nested function scope
+					var foo = 2;
+					console.log("foo (myFunc): " + foo);
+				}();
+
+			}();
+
+			// eval scope
+			eval('var foo = 3; console.log(foo);');
+
+			var bar = 1;
+
+			// scope doesn't exists in blocks
+			if(true) {
+				bar = 2;
+				for(var i = 3; i <= 5; i++) {
+					bar = i;
+					console.log("bar: " + bar);
+				}
+			}
+
+			var countUpFromZero = function() {
+				var count = 0;
+				return function() {
+					return ++count;
+				}
+			}();
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+			console.log(countUpFromZero());
+		</script>
+	</body>
+</html>
