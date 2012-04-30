@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			// The use of 'call' and how we can use this to 
+			// tell a function how to define 'this'. In other
+			// words, we are telling the function what 'this'
+			// refers to.
+			var myObject = {};
+			var myFunction = function(parm1, parm2) {
+				this.foo = parm1;
+				this.bar = parm2;
+				console.log(this);
+			}
+
+			// call uses comma seperated values 
+			//myFunction.call(myObject, 'foo', 'bar');
+			//console.log(myObject);
+
+			// apply uses an array to pass values to the
+			// function being called.
+			myFunction.apply(myObject, ['foo', 'bar']);
+			console.log(myObject);
+		</script>
+	</body>
+</html>

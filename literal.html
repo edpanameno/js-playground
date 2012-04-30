@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var me = {};
+			console.log("typeof me: " + typeof me);
+			me.name = "Vito Coreleone";
+			console.log("name: " + me.name);
+			me.sound = function(noise) {
+				console.log(noise);
+			}
+			console.log(me.sound("burrr"));
+			
+			me.sayName = function() {
+				console.log("Hello " + this.name);
+			}
+			console.log(me.sayName());
+			var sayName = me.sayName;
+			sayName;
+			var name = "Sunny Corleone";
+			
+			// this will now print the variable that's held
+			// in the global object.
+			sayName();
+		</script>
+	</body>
+</html>

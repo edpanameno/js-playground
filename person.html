@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var Person = function(x) {
+				if(x) {
+					this.fullName = x;
+				}
+			};
+			
+			Person.prototype.whatIsMyFullName = function() {
+				return this.fullName;
+			}
+
+			var me = new Person("Ed Panameno");
+			var jane = new Person("Jane Smith");
+			console.log(me.whatIsMyFullName());
+			console.log(jane.whatIsMyFullName());
+
+			Person.prototype.fullName = "John Doe";
+			var john = new Person();
+			console.log(john.whatIsMyFullName());
+
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+		<script>
+			var myObj = {
+				myProperty: "I can see yummy things",
+				myMethod: function() {
+					// we are storing a reference to the myObj
+					// in the 'that' variable.
+					var that = this;
+					var helperFunction = function() {
+						console.log(that.myProperty);
+						console.log(this);
+					}();
+				}
+			}
+			myObj.myMethod();
+
+			var x = 10;
+			var o = { x: 15 };
+			function f(message) {
+				console.log(message);
+				console.log(this.x);
+			}
+
+			f("invoking f");
+
+			// by using call(), we are telling f what to use
+			// as the 'this' object. In this case, we are telling
+			// it to use the variable o as 'this'.
+			f.call(o, "invoking f via call");
+		</script>
+	</body>
+</html>
