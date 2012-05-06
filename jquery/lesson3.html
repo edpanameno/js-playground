@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<style>
+			li { color: black; }
+			.emphasis { color: green; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<p>
+				Add some text here to make this look pretty. 
+				Add some text here to make this look pretty.
+				Add some text here to make this look pretty.
+				Add some text here to make this look pretty.
+				Add some text here to make this look pretty.
+			</p>
+			<ul class="emphasis">
+				<li>item</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+				<li>
+					<ul>
+						<li>Hello from the nest.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			//$('ul.emphasis').children('li').css('color', 'green');
+			$('ul.emphasis')
+			.children('li')
+				.eq(3).next()
+					.text('added with jquery')
+					.addClass('emphasis');
+					//$('ul.emphasis').children('li').eq(3).text('added with jquery').css('color', 'red');
+			$('li').parent().removeClass('emphasis');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<script src="jquery-1.7.2.js"></script>
+		
+		<script>
+			// this is a shorthand wayof using the 
+			// document.ready
+			$(function() {
+				$('li:first-child').addClass('emphasis');
+			});
+			
+			/*$(document).ready(function() {
+			});*/
+
+		</script>
+
+		<style>
+			.emphasis { 
+				font-weight: bold; 
+				color: green;
+			}
+		</style>
+
+	</head>
+	<body>
+		<ul>
+			<li>hello</li>
+			<li>hello 2</li>
+			<li>hello 3</li>
+		</ul>
+	</body>
+</html>
