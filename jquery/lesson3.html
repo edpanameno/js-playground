@@ -3,44 +3,63 @@
 	<head>
 		<title>Learning jQuery - Lesson 3</title>
 		<style>
-			li { color: black; }
-			.emphasis { color: green; }
+			/*li { 
+				color: black; 
+			}
+
+			.emphasis { color: green; }*/
 		</style>
 	</head>
 	<body>
+		<h3>Querying the DOM</h3>
 		<div class="container">
 			<p>
-				Add some text here to make this look pretty. 
-				Add some text here to make this look pretty.
-				Add some text here to make this look pretty.
-				Add some text here to make this look pretty.
+				Add some text here to make this look nice. 
+				Add some text here to make this look ugly.
+				Add some text here to make this look questionable.
+				Add some text here to make this look pretty again.
 				Add some text here to make this look pretty.
 			</p>
-			<ul class="emphasis">
-				<li>item</li>
+			<div class="container">
+			<ul class="emphasis container">
+				<li>item 1</li>
 				<li>item 2</li>
 				<li>item 3</li>
 				<li>item 4</li>
 				<li>item 5</li>
 				<li>
 					<ul>
-						<li>Hello from the nest.</li>
+						<li id="test">Hello from the nest.</li>
 					</ul>
 				</li>
 			</ul>
+			</div>
+
 		</div>
 		<script src="jquery-1.7.2.js"></script>
 		<script>
-			$(".container p").css({'color': 'brown', "font-weight": "bold"});
-			//$('.container').css('color', '#900');
+			// ul.emphasis > li
+			//console.log($('ul.emphasis').children("li"));
+
+			// this will get the childre of ul.emphasis
 			//$('ul.emphasis').children('li').css('color', 'green');
-			$('ul.emphasis')
+			
+			// this will find any li elements inside of ul.emphasis
+			//$('ul.emphasis').find('li').css('color', 'green');
+			/*$('ul.emphasis')
 				.children('li')
-				.eq(3).next()
-				.text('added with jquery')
-				.addClass('emphasis');
-				//$('ul.emphasis').children('li').eq(3).text('added with jquery').css('color', 'red');
-			$('li').parent().removeClass('emphasis');
+				.eq(3)
+				.prev()
+				.text("added with jquery");*/
+				//$('li').closest('.container').removeClass('emphasis');
+				//console.log($('li').parents('.container'));
+				//console.log($('ul').parents('.container'));
+				//console.log($('li').closest('.container'));
+				console.log($('#test'));
+				$("#test").parents('.container').css("color", "#900");
+				$("#test").closest('.container').css("color", "green");
+				$("#test").closest('.container').css("font-family", "Georgia");
+				$("#test").closest('.container').css("font-size", "10pt");
 		</script>
 	</body>
 </html>

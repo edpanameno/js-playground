@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Learning jQuery - Lesson 4</title>
+		<link rel="stylesheet" href="day.css" />
+	</head>
+	<body>
+		<h1>Events 101</h1>
+		
+		<button data-file="day.css">Day</button>
+		<button data-file="night.css">Night</button>
+
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			(function() {
+				var link = $('link');
+
+				$('button').on("click", function() {
+					var $this = $(this), 
+						styleSheet = $this.data('file');
+
+					link.attr('href', styleSheet);
+
+					$this
+						.siblings('button')
+							.removeAttr('disabled')
+							.end()
+							.attr('disabled', 'disabled');
+
+					$this.attr('disabled', 'disbaled');
+				});
+			})();
+		</script>
+	</body>
+</html>
