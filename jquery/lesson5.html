@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Learning jQuery - Lesson 5</title>
+		<style>
+			body { 
+				width: 500px;
+				margin: auto;
+				text-align: center;
+			}
+
+			dl {
+			}
+
+			dd {
+				margin: 0;
+				padding: 1em 0;
+			}
+
+			dt { 
+				cursor: pointer;
+				font-weight: bold;
+				font-size: 1.5em;
+				line-height: 2em;
+				background: #e3e3e3;
+				border-bottom: 1px solid #c5c5c5;
+				border-top: 1px solid white;
+			}
+
+			.hide {display: none;}
+
+			dt:first-child { border-top: none; }
+			dt:nth-last-child(2) { border-bottom: none; }
+		</style>
+	</head>
+	<body>
+		<h3>Events 201</h3>
+		
+		<dl>
+			<dt>What are your hours?</dt>
+			<dd>We are open 24/7.</dd>
+			<dt>What are your hours?</dt>
+			<dd>We are open 24/7.</dd>
+			<dt>What are your hours?</dt>
+			<dd>We are open 24/7.</dd>
+			<dt>What are your hours?</dt>
+			<dd>We are open 24/7.</dd>
+			<dt>What are your hours?</dt>
+			<dd>We are open 24/7.</dd>
+		</dl>
+		
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			(function() {
+				
+				$('dd').filter(':nth-child(n+4)').addClass('hide');
+				
+				// we are applying an event to the dl, then we pass
+				// a selector string so that we can tell jQuery that
+				// we are looking for dt elements.
+				$('dl').on('mouseenter', 'dt', function() {
+					$(this)
+						.next()
+							.slideDown()
+							.siblings('dd')
+								.slideUp(300);
+				});
+			})();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Learning jQuery - Lesson 8</title>
+		<style>
+			body {
+				width: 600px;
+				margin: auto;
+				font-family: sans-serif;
+			}
+			
+			#contact { 
+				background: #e3e3e3; 
+				padding: 1em 2em; 
+				position: relative;
+			}
+
+			/** if javascript is enabled, hide contact form **/
+			.js #contact {
+				position: absolute;
+				top: 0;
+				width: inherit;
+				display: none;
+			}	
+
+			#contact h2 { margin-top: 0; }
+
+			#contact ul { padding: 0; }
+
+			#contact li { 
+				list-style: none;
+				margin-bottom: 1em;
+			}
+
+			/* Close button on form */
+			.close {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				font-weight: bold;
+				font-family: sans-serif;
+				cursor: pointer;
+			}	
+		</style>
+	</head>
+	<body>
+		<article>
+		<h3>My Simply Awsome post</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a interdum est. Aenean sed nunc et ante porttitor fermentum. Curabitur mi eros, sagittis et varius sit amet, tincidunt vehicula turpis. Nam sed sollicitudin metus. In dapibus turpis in lectus faucibus viverra. Phasellus ac dui risus, sed fringilla sapien. Nulla nec molestie velit. Maecenas sit amet augue a tellus tempus consequat. Duis vel massa magna. Nulla ante dolor, pharetra vel dapibus at, euismod ac mauris.<p>
+		<p>Duis fringilla felis sed ante tincidunt volutpat. Quisque ut libero ac urna mollis consequat quis ut mi. Fusce eget erat odio, nec pellentesque dui. Pellentesque accumsan scelerisque urna, sit amet ultricies ipsum ultrices id. Integer feugiat, turpis a placerat sollicitudin, elit ligula eleifend libero, scelerisque pulvinar urna ante non dui. Nunc in nunc nulla. Donec in orci ligula. Pellentesque auctor tempor diam, ut luctus nisi faucibus sit amet.</p>
+		<p>Morbi at elit id nisl luctus pellentesque. Vestibulum placerat gravida nunc ac mollis. Aliquam erat volutpat. Ut blandit velit eu dolor pellentesque gravida. Vivamus tincidunt accumsan mi at pharetra. Donec nibh lacus, eleifend quis iaculis et, posuere quis leo. Integer nec erat orci, quis semper metus. Ut tristique fringilla scelerisque. In hac habitasse platea dictumst.</p>
+		<div id="contact">
+			<h2>Contact Me</h2>
+			<form action="#">
+				<ul>
+					<li>
+						<label for="name">Name:</label>
+						<input name="name" id="name">
+					</li>
+					<li>
+						<label for="email">Email:</label>
+						<input name="email" id="email">
+					</li>	
+					<li>
+						<label for="comments">Comments:</label>
+						<textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+					</li>	
+					<li>
+						<input type="submit" value="Submit">
+					</li>	
+				</ul>
+			</form>
+		</div>
+		</article>
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			(function() {
+				
+				// this is a way to check to see if javascript
+				// is available or not.
+				$('html').addClass('js');
+				
+				var contactForm = {
+					
+					container: $('#contact'),
+					
+					config: { 
+						effect: 'slideToggle',
+						speed: 500
+					},	
+
+					init: function(config) {
+						$.extend(this.config, config);
+						$('<button></button>', {
+							text: "Contact Me"
+						}).insertAfter('article')
+						  .on('click', this.show);
+					},
+
+					show: function() {
+						var cf = contactForm,
+							container = cf.container,
+							config = cf.config;
+
+						if(container.is(':hidden')) {
+							cf.close.call(container);
+							container[config.effect](config.speed);
+						}
+					},
+
+					close: function() {
+						
+						// $(this) refers to contactForm.container
+						var $this = $(this);
+
+						if($this.find('span.close').length) return;
+
+						$('<span class=close>X</span>')
+						.prependTo(this)
+						.on("click", function() {
+							$this[contactForm.config.effect](contactForm.config.speed);
+						})
+					}
+				};
+
+				contactForm.init({ 
+					effect: 'fadeToggle', 
+					speed: 200}
+				);
+			})();
+		</script>
+	</body>
+</html>

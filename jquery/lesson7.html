@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Learning jQuery - Lesson 7</title>
+		<style>
+			article {
+				width: 600px;
+				margin: auto;
+			}
+
+			blockquote.co {
+				float: right;
+				background: #e3e3e3;
+				font-size: 2em;
+
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<h1>My Awsome Post</h1>
+			<p>Some some text will go here for testing purposes. Nothing meaningful
+			will be written down here so please don't think too much about this text.
+			</p>
+			<p>
+			<span class="co">Some some text will go here for testing purposes.</span> Nothing meaningful
+			will be written down here so please don't think too much about this text.
+			</p>
+		</article>
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			(function() {
+				//$('p').first().before("Hello from Javascript");
+				//$('article').append("hello from Javascript");
+				//$('<h2>Hi from Javascript</h2>').appendTo('article');
+				/*$('<h2></h2>', {
+					text: 'Hello, from jQuery!!',
+					class: 'myClass'
+				}).insertAfter('h1');*/
+
+				// Moving an existing element
+				/*$('p').eq(0).after(function() {
+					return $(this).prev();
+				});*/
+				
+				//$('h1').appendTo('article');
+
+				var co = $('span.co').each(function() {
+					var $this = $(this);
+
+					$('<blockquote></blockquote>', {
+						class: 'co',
+						text: $this.text()
+					}).prependTo($this.closest('p'));
+
+					//$(this).closest('p').prepend('hi there');
+				});
+
+			})();
+		</script>
+	</body>
+</html>
+
